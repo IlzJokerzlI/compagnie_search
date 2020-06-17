@@ -51,6 +51,11 @@ Employee *LinkedList::getHead() {
 }
 
 
+Employee *LinkedList::getTail() {
+    return this->tail;
+}
+
+
 void LinkedList::display() {
     Employee *currentPtr { this->head };
     while(currentPtr) {

@@ -137,15 +137,22 @@ int HashTable::display() {
 }
 
 
-void HashTable::displaySort() {
-    AVLTree **tempAVL { this->table };
+int HashTable::displaySort() {
+    AVLTree **tempTable { this->table };
+    List *list = new List();
 
     if (this->table) {
         for (int i { 0 }; i < this->n; i++) {
             for (int j {0}; j < this->n; j++) {
-                tempAVL[i][j].display();
+                List *tempList { new List() };
+                int result { tempTable[i][j].displaySorted(tempList) };
+                if (result == 0) {
+                    list->merge(tempList);
+                }
             }
         }
+
+        list->display();
         return 0;
     }
 

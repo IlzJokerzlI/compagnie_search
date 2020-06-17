@@ -16,6 +16,7 @@ public:
 	LinkedList *rotateToRToL(LinkedList *linkedList); //Rotation for RL Imbalance
 	LinkedList *insert(LinkedList *linkedList, Employee *employee); //Insert linkedList
 	void inordDisp(LinkedList *linkedList);
+	void inordSort(List *list, LinkedList *linkedList);
 
 	public:
 		int insert(Employee *employee); //Insert linkedList for public
@@ -23,4 +24,5 @@ public:
 		List *getEmployee(string firstName, string lastName, ID *id); //Finds and Gets the Employee Object by using name
 		LinkedList *getRoot(); //Get the root linkedList of the tree uses
 		int display();
+		int displaySorted(List *list);
 }; 

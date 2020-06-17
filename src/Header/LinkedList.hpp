@@ -16,5 +16,6 @@ public:
     		Employee *getEmployee(ID *id);
     		List *getEmployee(string firstName, string lastName);
     		Employee *getHead();
+    		Employee *getTail();
     		void display();
 };

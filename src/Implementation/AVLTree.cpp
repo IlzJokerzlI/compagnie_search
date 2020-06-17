@@ -163,6 +163,19 @@ void AVLTree::inordDisp(LinkedList *linkedList) {
 }
 
 
+void AVLTree::inordSort(List *list, LinkedList *linkedList) {
+    if (linkedList) {
+        this->inordSort(list, linkedList->lPtr);
+        Employee *currentNode { linkedList->getHead() };
+        while (currentNode) {
+            list->addSort(currentNode);
+            currentNode = currentNode->nextPtr;
+        }
+        this->inordSort(list, linkedList->rPtr);
+    }
+}
+
+
 //Public Functions
 
 //Inserts employee to tree
@@ -223,5 +236,15 @@ int AVLTree::display() {
         this->inordDisp(this->root);
         return 0;
     }
+    return -1;
+}
+
+
+int AVLTree::displaySorted(List *list) {
+    if (this->root) {
+        this->inordSort(list, this->root);
+        return 0;
+    }
+
     return -1;
 }
