@@ -1,9 +1,9 @@
-Build started at 2020-06-03T16:44:16.555626
+Build started at 2020-06-17T11:49:08.155231
 Main binary: /usr/bin/python
 Build Options: -Dbackend=ninja
 Python system: Linux
 The Meson build system
-Version: 0.54.1
+Version: 0.54.2
 Source dir: /home/arvin/Documents/github/CompagnieSearch
 Build dir: /home/arvin/Documents/github/CompagnieSearch/builddir
 Build type: native build
@@ -27,8 +27,8 @@ Build targets in project: 1
 
 Found ninja-1.10.0 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmpaipo10co
-Command line:  c++ /tmp/tmpaipo10co/testfile.cpp -o /tmp/tmpaipo10co/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
+Working directory:  /tmp/tmp0d3zb6_9
+Command line:  c++ /tmp/tmp0d3zb6_9/testfile.cpp -o /tmp/tmp0d3zb6_9/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
 
 Code:
  int i = static_cast<int>(0);
@@ -38,15 +38,15 @@ Compiler stderr:
  
 Compiler accepts -std=c++14: YES
 Running compile:
-Working directory:  /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpft7frezo
-Command line:  c++ /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpft7frezo/testfile.cpp -o /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpft7frezo/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpd95o7zrx
+Command line:  c++ /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpd95o7zrx/testfile.cpp -o /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpd95o7zrx/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  
 Compiler stdout:
- install: /usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/
-programs: =/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/bin/
-libraries: =/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/lib/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../x86_64-pc-linux-gnu/9.3.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib/:/lib/x86_64-pc-linux-gnu/9.3.0/:/lib/../lib/:/usr/lib/x86_64-pc-linux-gnu/9.3.0/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../x86_64-pc-linux-gnu/lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../:/lib/:/usr/lib/
+ install: /usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/
+programs: =/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/lib/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../x86_64-pc-linux-gnu/10.1.0/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../lib/:/lib/x86_64-pc-linux-gnu/10.1.0/:/lib/../lib/:/usr/lib/x86_64-pc-linux-gnu/10.1.0/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../../x86_64-pc-linux-gnu/lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/10.1.0/../../../:/lib/:/usr/lib/
 
 Compiler stderr:
  

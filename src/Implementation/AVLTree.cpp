@@ -1,39 +1,34 @@
 #include "../Header/AVLTree.hpp"
-#include <iostream>
 
-using std::cout;
-using std::endl;
-
-
-//Gets the height of a node
-int AVLTree::getHeight(Node *node) {
-    int lHeight = (node && node->lPtr) ? node->lPtr->height : 0;
-    int rHeight = (node && node->rPtr) ? node->rPtr->height : 0;
+//Gets the height of a linkedList
+int AVLTree::getHeight(LinkedList *linkedList) {
+    int lHeight = (linkedList && linkedList->lPtr) ? linkedList->lPtr->height : 0;
+    int rHeight = (linkedList && linkedList->rPtr) ? linkedList->rPtr->height : 0;
     return (lHeight > rHeight) ? lHeight + 1 : rHeight + 1;
 }
 
 
 //Get the balance factor for determining rotation action
-int AVLTree::getBalanceFactor(Node *node) {
-    int lHeight = (node && node->lPtr) ? node->lPtr->height : 0;
-    int rHeight = (node && node->rPtr) ? node->rPtr->height : 0;
+int AVLTree::getBalanceFactor(LinkedList *linkedList) {
+    int lHeight = (linkedList && linkedList->lPtr) ? linkedList->lPtr->height : 0;
+    int rHeight = (linkedList && linkedList->rPtr) ? linkedList->rPtr->height : 0;
     return lHeight - rHeight;
 }
 
 
-//Performs node rotation To Right (LL Imbalance)
-Node *AVLTree::rotateToR(Node *node) {
-    //Sets the position of nodes
-    Node *temp = node->lPtr;
-    node->lPtr = temp->rPtr;
-    temp->rPtr = node;
+//Performs linkedList rotation To Right (LL Imbalance)
+LinkedList *AVLTree::rotateToR(LinkedList *linkedList) {
+    //Sets the position of linkedLists
+    LinkedList *temp = linkedList->lPtr;
+    linkedList->lPtr = temp->rPtr;
+    temp->rPtr = linkedList;
 
-    //Updates the height of swaped nodes
-    node->height = this->getHeight(node);
+    //Updates the height of swaped linkedLists
+    linkedList->height = this->getHeight(linkedList);
     temp->height = this->getHeight(temp);
 
     //Updates the root if the position of previous root swapped
-    if (node == this->root) {
+    if (linkedList == this->root) {
         this->root = temp;
     }
 
@@ -41,22 +36,22 @@ Node *AVLTree::rotateToR(Node *node) {
 }
 
 
-//Performs node rotation To Left then To Right (LR Imbalance)
-Node *AVLTree::rotateToLToR(Node *node) {
-    //Sets the position of nodes
-    Node *temp = node->lPtr->rPtr;
-    node->lPtr->rPtr = temp->lPtr;
-    temp->lPtr = node->lPtr;
-    node->lPtr = temp->rPtr;
-    temp->rPtr = node;
+//Performs linkedList rotation To Left then To Right (LR Imbalance)
+LinkedList *AVLTree::rotateToLToR(LinkedList *linkedList) {
+    //Sets the position of linkedLists
+    LinkedList *temp = linkedList->lPtr->rPtr;
+    linkedList->lPtr->rPtr = temp->lPtr;
+    temp->lPtr = linkedList->lPtr;
+    linkedList->lPtr = temp->rPtr;
+    temp->rPtr = linkedList;
 
-    //Updates the height of swaped nodes
-    node->height = this->getHeight(node);
-    temp->height = this->getHeight(node);
+    //Updates the height of swaped linkedLists
+    linkedList->height = this->getHeight(linkedList);
+    temp->height = this->getHeight(linkedList);
     temp->lPtr->height = this->getHeight(temp->lPtr);
 
     //Updates the root if the position of previous root swapped
-    if (node == this->root) {
+    if (linkedList == this->root) {
         this->root = temp;
     }
 
@@ -65,19 +60,19 @@ Node *AVLTree::rotateToLToR(Node *node) {
 }
 
 
-//Perform node rotation To Left (RR Imbalance)
-Node *AVLTree::rotateToL(Node *node) {
-    //Sets the position of nodes
-    Node *temp = node->rPtr;
-    node->rPtr = temp->rPtr;
-    temp->lPtr = node;
+//Perform linkedList rotation To Left (RR Imbalance)
+LinkedList *AVLTree::rotateToL(LinkedList *linkedList) {
+    //Sets the position of linkedLists
+    LinkedList *temp = linkedList->rPtr;
+    linkedList->rPtr = temp->rPtr;
+    temp->lPtr = linkedList;
 
-    //Updates the height of swaped nodes
-    node->height = this->getHeight(node);
+    //Updates the height of swaped linkedLists
+    linkedList->height = this->getHeight(linkedList);
     temp->height = this->getHeight(temp);
 
     //Updates the root if the position of previous root swapped
-    if (node == this->root) {
+    if (linkedList == this->root) {
         this->root = temp;
     }
 
@@ -85,22 +80,22 @@ Node *AVLTree::rotateToL(Node *node) {
 }
 
 
-//Performs node rotation To Right then To Left (RL Imbalance)
-Node *AVLTree::rotateToRToL(Node *node) {
-    //Sets the position of nodes
-    Node *temp = node->rPtr->lPtr;
-    node->rPtr->lPtr = temp->rPtr;
-    temp->rPtr = node->rPtr;
-    node->rPtr = temp->lPtr;
-    temp->lPtr = node;
+//Performs linkedList rotation To Right then To Left (RL Imbalance)
+LinkedList *AVLTree::rotateToRToL(LinkedList *linkedList) {
+    //Sets the position of linkedLists
+    LinkedList *temp = linkedList->rPtr->lPtr;
+    linkedList->rPtr->lPtr = temp->rPtr;
+    temp->rPtr = linkedList->rPtr;
+    linkedList->rPtr = temp->lPtr;
+    temp->lPtr = linkedList;
 
-    //Updates the height of swaped nodes
-    node->height = this->getHeight(node);
-    temp->height = this->getHeight(node);
+    //Updates the height of swaped linkedLists
+    linkedList->height = this->getHeight(linkedList);
+    temp->height = this->getHeight(linkedList);
     temp->rPtr->height = this->getHeight(temp->rPtr);
 
     //Updates the root if the position of previous root swapped
-    if (node == this->root) {
+    if (linkedList == this->root) {
         this->root = temp;
     }
 
@@ -108,65 +103,73 @@ Node *AVLTree::rotateToRToL(Node *node) {
 }
 
 
-//Inserts value to tree
-Node *AVLTree::insert(Node *node, int value) {
+//Inserts employee to tree
+LinkedList *AVLTree::insert(LinkedList *linkedList, Employee *employee) {
     //Set the root if none presents in the tree
     if (this->root == nullptr) {
-        this->root = new Node(value);
+        this->root = new LinkedList();
+        this->root->add(employee);
+
         return this->root;
     }
 
-    //Create new node at the leaf of the tree
-    if (node == nullptr) {
-        node = new Node(value);
-        return node;
+    //Create new linkedList at the leaf of the tree
+    if (linkedList == nullptr) {
+        linkedList = new LinkedList();
+        linkedList->add(employee);
+        return linkedList;
     }
 
     //Get to the leaf of the tree
-    if (value < node->value) {
-        //Put left if value is smaller
-        node->lPtr = insert(node->lPtr, value);
-    } else if (value > node->value) {
-        //Put right if value is bigger
-        node->rPtr = insert(node->rPtr, value);
+    if (employee->getID()->getCode() < linkedList->getHead()->getID()->getCode()) {
+        //Put left if employee is smaller
+        linkedList->lPtr = insert(linkedList->lPtr, employee);
+    } else if (employee->getID()->getCode() > linkedList->getHead()->getID()->getCode()) {
+        //Put right if employee is bigger
+        linkedList->rPtr = insert(linkedList->rPtr, employee);
     } else {
-        //Put to linked list if value is equal
-        Node *tempNode = node
-        while(tempNode->cPtr) {
-            tempNode = tempNode->cPtr;
-        }
-        tempNode->cPtr = new Node(value);
+        //Put to linked list if employee is equal
+        linkedList->add(employee);
     }
 
-    //Update the height of the nodes traversed by the new value
-    node->height = this->getHeight(node);
+    //Update the height of the linkedLists traversed by the new employee
+    linkedList->height = this->getHeight(linkedList);
 
     //Check which rotation to take
-    if (this->getBalanceFactor(node) == 2 && this->getBalanceFactor(node->lPtr) == 1) {
+    if (this->getBalanceFactor(linkedList) == 2 && this->getBalanceFactor(linkedList->lPtr) == 1) {
         //LL Imbalance
-        return this->rotateToR(node);
-    } else if (this->getBalanceFactor(node) == 2 && this->getBalanceFactor(node->lPtr) == -1) {
+        return this->rotateToR(linkedList);
+    } else if (this->getBalanceFactor(linkedList) == 2 && this->getBalanceFactor(linkedList->lPtr) == -1) {
         //LR Imbalance
-        return this->rotateToLToR(node);
-    } else if (this->getBalanceFactor(node) == -2 && this->getBalanceFactor(node->rPtr) == -1) {
+        return this->rotateToLToR(linkedList);
+    } else if (this->getBalanceFactor(linkedList) == -2 && this->getBalanceFactor(linkedList->rPtr) == -1) {
         //RR Imbalance
-        return this->rotateToL(node);
-    } else if (this->getBalanceFactor(node) == -2 && this->getBalanceFactor(node->rPtr) == 1) {
+        return this->rotateToL(linkedList);
+    } else if (this->getBalanceFactor(linkedList) == -2 && this->getBalanceFactor(linkedList->rPtr) == 1) {
         //RL Imbalance
-        return this->rotateToRToL(node);
+        return this->rotateToRToL(linkedList);
     }
 
-    return node;
+    return linkedList;
+}
+
+
+void AVLTree::inordDisp(LinkedList *linkedList) {
+    if (linkedList) {
+        this->inordDisp(linkedList->lPtr);
+        linkedList->display();
+        this->inordDisp(linkedList->rPtr);
+    }
 }
 
 
 //Public Functions
 
-//Inserts value to tree
-int AVLTree::insert(int value) {
+//Inserts employee to tree
+int AVLTree::insert(Employee *employee) {
     //Try-Catch error from insert function
     try {
-        this->insert(this->getRoot(), value);
+        this->insert(this->getRoot(), employee);
     } catch (...) {
         return -1;
     }
@@ -175,7 +178,50 @@ int AVLTree::insert(int value) {
 }
 
 
+//Finds and Gets the Employee by using ID
+Employee *AVLTree::getEmployee(ID *id) {
+    LinkedList *currentPtr { this->root };
+    while (currentPtr) {
+        if (id->getCode() < currentPtr->getHead()->getID()->getCode()) {
+            currentPtr = currentPtr->lPtr;
+        } else if (id->getCode() > currentPtr->getHead()->getID()->getCode()) {
+            currentPtr = currentPtr->rPtr;
+        } else {
+            return currentPtr->getEmployee(id);
+        }
+    }
+
+    return nullptr;
+}
+
+
+//Finds and Gets the Employee by using name
+List *AVLTree::getEmployee(string firstName, string lastName, ID *id) {
+    LinkedList *currentPtr { this->root };
+    while (currentPtr) {
+        if (id->getCode() < currentPtr->getHead()->getID()->getCode()) {
+            currentPtr = currentPtr->lPtr;
+        } else if (id->getCode() > currentPtr->getHead()->getID()->getCode()) {
+            currentPtr = currentPtr->rPtr;
+        } else {
+            return currentPtr->getEmployee(firstName, lastName);
+        }
+    }
+
+    return nullptr;
+}
+
+
 //Gets the root of the tree
-Node *AVLTree::getRoot() {
+LinkedList *AVLTree::getRoot() {
     return this->root;
+}
+
+
+int AVLTree::display() {
+    if (this->root) {
+        this->inordDisp(this->root);
+        return 0;
+    }
+    return -1;
 }

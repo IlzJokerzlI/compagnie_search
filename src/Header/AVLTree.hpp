@@ -1,18 +1,26 @@
-#include "../Implementation/Node.cpp"
+#pragma once
+
+#include "LinkedList.hpp"
+
 #include <iostream>
 
 class AVLTree {
-	Node *root {nullptr};
+public:
+	LinkedList *root { nullptr };
 
-	int getHeight(Node *node); //Get the height position of nodes in the tree
-	int getBalanceFactor(Node *node); //Get balance factor for nodes to determine their rotation
-	Node *rotateToR(Node *node); //Rotation for LL Imbalance
-	Node *rotateToLToR(Node *node); //Rotation for LR Imbalance
-	Node *rotateToL(Node *node); //Rotation for RR Imbalance
-	Node *rotateToRToL(Node *node); //Rotation for RL Imbalance
-	Node *insert(Node *node, int value); //Insert node
+	int getHeight(LinkedList *linkedList); //Get the height position of linkedLists in the tree
+	int getBalanceFactor(LinkedList *linkedList); //Get balance factor for linkedLists to determine their rotation
+	LinkedList *rotateToR(LinkedList *linkedList); //Rotation for LL Imbalance
+	LinkedList *rotateToLToR(LinkedList *linkedList); //Rotation for LR Imbalance
+	LinkedList *rotateToL(LinkedList *linkedList); //Rotation for RR Imbalance
+	LinkedList *rotateToRToL(LinkedList *linkedList); //Rotation for RL Imbalance
+	LinkedList *insert(LinkedList *linkedList, Employee *employee); //Insert linkedList
+	void inordDisp(LinkedList *linkedList);
 
 	public:
-		Node *getRoot(); //Get the root node of the tree
-		int insert(int value); //Insert node for public uses
-};
+		int insert(Employee *employee); //Insert linkedList for public
+		Employee *getEmployee(ID *id); //Finds and Gets the Employee Object by using ID
+		List *getEmployee(string firstName, string lastName, ID *id); //Finds and Gets the Employee Object by using name
+		LinkedList *getRoot(); //Get the root linkedList of the tree uses
+		int display();
+}; 

@@ -1,3 +1,5 @@
+#include "Header/HashTable.hpp"
+
 #include <iostream>
 #include <string>
 
@@ -6,17 +8,16 @@ using std::cout;
 using std::endl;
 using std::string;
 
-#include "Header/AVLTree.hpp"
-
 int main() {
-    AVLTree avl = AVLTree();
+    HashTable hashTable = HashTable();
+    hashTable.input("Arvin", "Lee");
+    hashTable.input("Arvin", "Lee");
+    hashTable.input("Arvin", "Ldf");
+    // string id { "anle4001"};
+    // cout << hashTable.getEmployee(id)->getFirstName() << endl;
+    // List *result = hashTable.getEmployee("Arvin", "Lee");
+    // result->display();
 
-    avl.insert(10);
-    avl.insert(5);
-    avl.insert(7);
-
-    cout << avl.getRoot()->value << endl;
-    cout << avl.getRoot()->lPtr->value << endl;
-    cout << avl.getRoot()->rPtr->value << endl;
+    hashTable.display();
     return 0;
 }
