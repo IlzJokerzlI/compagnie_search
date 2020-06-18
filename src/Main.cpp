@@ -87,7 +87,7 @@ int main() {
 
 
         } else if (option == "5") {
-            cout << "[4] Find (Name)" << endl;
+            cout << "[5] Find (Name)" << endl;
 
             cout << "First Name: ";
             cin >> firstName;
@@ -97,7 +97,7 @@ int main() {
 
             List *list { hashTable->getEmployee(firstName, lastName) };
 
-            if (list->getHead()) {
+            if (list && list->getHead()) {
                 cout << endl;
                 list->display();
                 cout << endl;
@@ -109,7 +109,7 @@ int main() {
             hashTable->display();
 
         } else if (option == "7") {
-            cout << "[6] Display Sorted" << endl;
+            cout << "[7] Display Sorted" << endl;
             hashTable->displaySort();
 
         } else if (option == "8") {
