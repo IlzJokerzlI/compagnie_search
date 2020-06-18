@@ -154,6 +154,7 @@ LinkedList *AVLTree::insert(LinkedList *linkedList, Employee *employee) {
 }
 
 
+//Display the nodes of the linked list in an Inorder manner
 void AVLTree::inordDisp(LinkedList *linkedList) {
     if (linkedList) {
         this->inordDisp(linkedList->lPtr);
@@ -163,34 +164,21 @@ void AVLTree::inordDisp(LinkedList *linkedList) {
 }
 
 
+//Access the nodes of the linked list in an Inorder manner with alphabetical order
 void AVLTree::inordSort(List *list, LinkedList *linkedList) {
     if (linkedList) {
         this->inordSort(list, linkedList->lPtr);
-        Employee *currentNode { linkedList->getHead() };
-        while (currentNode) {
-            if (!currentNode->isDeactivated()) {
-                list->addSort(currentNode);
-            }
-            currentNode = currentNode->nextPtr;
-        }
+        list->merge(linkedList->getSortedList());
         this->inordSort(list, linkedList->rPtr);
     }
 }
 
 
+//Write the data contained in an Inorder manner
 void AVLTree::inordWrite(ofstream &file, LinkedList *linkedList) {
     if (linkedList) {
         this->inordWrite(file, linkedList->lPtr);
-        Employee *currentNode { linkedList->getHead() };
-        while (currentNode) {
-            file << currentNode->isDeactivated() << ",";
-            file << currentNode->getID()->toString() << ",";
-            file << currentNode->getFirstName() << ",";
-            file << currentNode->getLastName();
-            file << endl;
-
-            currentNode = currentNode->nextPtr;
-        }
+        linkedList->write(file);
         this->inordWrite(file, linkedList->rPtr);
     }
 }
@@ -251,7 +239,9 @@ LinkedList *AVLTree::getRoot() {
 }
 
 
+//Displays the file contained in the AVL Tree
 int AVLTree::display() {
+    //Checks if root exists
     if (this->root) {
         this->inordDisp(this->root);
         return 0;
@@ -260,7 +250,9 @@ int AVLTree::display() {
 }
 
 
+//Displays the file contained in the AVL Tree sorted with an alphabetical order
 int AVLTree::displaySorted(List *list) {
+    //Checks if root exists
     if (this->root) {
         this->inordSort(list, this->root);
         return 0;
@@ -269,7 +261,9 @@ int AVLTree::displaySorted(List *list) {
     return -1;
 }
 
+//Writes the data contained in the AVL Tree to a .txt file
 int AVLTree::write(ofstream &file) {
+    //Checks if root exists
     if (this->root) {
         this->inordWrite(file, this->root);
         return 0;

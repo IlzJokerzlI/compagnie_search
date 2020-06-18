@@ -60,7 +60,9 @@ bool HashTable::check_ID(string &id) {
 
 
 //Public methods
+//Constructor
 HashTable::HashTable() {
+    //Creating the hash table's 2D table
 	AVLTree **tempAVL { new AVLTree*[this->n] };
 	for (int i { 0 }; i < this->n; i++) {
 	    tempAVL[i] = new AVLTree[this->n];
@@ -72,6 +74,7 @@ HashTable::HashTable() {
 }
 
 
+//Read data from file
 int HashTable::read(const string filePath) {
     ifstream file; //Text file
     string tempData[4] = {"0", "0", "0", "0"}; //Temporarily store data
@@ -99,6 +102,7 @@ int HashTable::read(const string filePath) {
 }
 
 
+//Input data with exisiting Employee Object
 int HashTable::input(Employee *employee) {
     int *loc = this->getLoc(employee->getID());
 
@@ -107,6 +111,7 @@ int HashTable::input(Employee *employee) {
 }
 
 
+//Inputs data
 int HashTable::input(string firstName, string lastName) {
     this->toLower(firstName);
     this->toLower(lastName);
@@ -120,7 +125,7 @@ int HashTable::input(string firstName, string lastName) {
 }
 
 
-/** Get Employee object stored in the system
+/** Gets Employee object stored in the system
     The function returns a pointer of employee object which stores informations of a certain employee. The function needs to check the id validity (using check_ID() method) before search thourght it otherwise there is a possibility of error occuring.
 **/
 Employee *HashTable::getEmployee(string id) {
@@ -136,6 +141,10 @@ Employee *HashTable::getEmployee(string id) {
 }
 
 
+/**Employee getter by using name
+    This employee getter is pretty much the same as the Employee getter by using ID. The differences are, it accepts name as its parameter and returns a list of Employee Object (data) since it is not as specific or as unique as search ID, because of the unique characteristic of the ID itself.
+    The Employee Getter can be used as a feature of data manipulation since it is returning the Employee Object. However, this method only display the data content since the data exist in this data are only the base data which must not be changed by any means (ID and names). This might cause serious trouble in searching since ID is permanent and it is created from name.
+**/
 List *HashTable::getEmployee(string firstName, string lastName) {
     this->toLower(firstName);
     this->toLower(lastName);
@@ -146,6 +155,9 @@ List *HashTable::getEmployee(string firstName, string lastName) {
 }
 
 
+/**Remove an object by deactivating it
+    The remove method in this program has its own uniquness, it is called as deactivating, which is not completely remove it from the storage but simply deactivate it so it won't appear when the display method is called or any other methods except for the getEmployee method which accepts ID as its parameter. The reason is, once an account is created, a unique ID is created alongside. If it is completely removed, it will also removes the unique ID which may cause trouble in the future when the data is manipulated.
+**/
 int HashTable::deactivate(string id) {
     Employee *tempEmployee { this->getEmployee(id) };
     if (tempEmployee) {
@@ -156,6 +168,9 @@ int HashTable::deactivate(string id) {
 }
 
 
+/**Display all the data contained in the hash table
+    This method displays all the data in the storage with exception of data with deactivated employee status. It simply iterates to each AVL Tree in the Hash Table, and then it calls the display method from AVL Tree which will further iterates to each LinkedList in each AVL Trees. Finally iterates through the Employee (Nodes) in the linked list before printing out the data.
+**/
 int HashTable::display() {
     AVLTree **tempAVL { this->table };
 
@@ -172,6 +187,9 @@ int HashTable::display() {
 }
 
 
+/**Displays all the sorted data contained in the hash table based on alphabetical order
+    Just as how it is called, it displays all the content of the storage just like the display method. However, it performs some sorting to the data based on alphabetical order.
+**/
 int HashTable::displaySort() {
     AVLTree **tempTable { this->table };
     List *list = new List();
@@ -187,7 +205,7 @@ int HashTable::displaySort() {
             }
         }
 
-        list->display();
+        list->display(); //Calls display method from List Object
         return 0;
     }
 
@@ -195,8 +213,11 @@ int HashTable::displaySort() {
 }
 
 
+/**Writes the data into a .txt file
+    The output method in this program only support "on save" type output, which means in order to save it, the ouput method needs to be called. Not the "on edit" type which updates the file data everytime the data is manipulated. The system works similar to display method mechanism
+**/
 int HashTable::write(const string filePath) {
-    ofstream file(filePath + ".txt");
+    ofstream file(filePath + ".txt"); //Open file
 
     AVLTree **tempAVL { this->table };
 
@@ -207,7 +228,7 @@ int HashTable::write(const string filePath) {
             }
         }
 
-        file.close();
+        file.close(); //Close file
         return 0;
     }
 

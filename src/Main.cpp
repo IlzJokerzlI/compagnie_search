@@ -97,7 +97,7 @@ int main() {
 
             List *list { hashTable->getEmployee(firstName, lastName) };
 
-            if (list) {
+            if (list->getHead()) {
                 cout << endl;
                 list->display();
                 cout << endl;

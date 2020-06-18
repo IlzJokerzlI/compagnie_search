@@ -5,9 +5,6 @@ using std::stoi;
 using std::string;
 using std::to_string;
 
-#include <iostream>
-using namespace std;
-
 
 /** ID Class
     The ID class is needed to instansiate an ID object which is used to store the ID of an employee. The ID iteslef served an important key role in data storing in this program, in which ressembles the position of the Employee data in the storage.
