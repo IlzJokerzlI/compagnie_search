@@ -76,4 +76,16 @@
 555	652	1592473182680907380	src/com.github.IlzJokerzlI.CompagnieSearch	e0934ac08d36b472
 2	447	1592473364753906863	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Main.cpp.o	5e14a9c9e9592831
 447	544	1592473364850571365	src/com.github.IlzJokerzlI.CompagnieSearch	e0934ac08d36b472
+<<<<<<< HEAD
 0	344	1592485631906143475	build.ninja	34cf7c53b163ead9
+=======
+0	329	1592485966491432676	build.ninja	34cf7c53b163ead9
+0	329	1592485966858101643	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_ID.cpp.o	87bbaed84befeb71
+0	355	1592485966884768477	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_Employee.cpp.o	86fdc1f5e63c09f2
+1	522	1592485967051436190	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_List.cpp.o	389bef096cd8c351
+0	552	1592485967081436378	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Main.cpp.o	5e14a9c9e9592831
+1	570	1592485967098103149	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_AVLTree.cpp.o	6f29cfac12c45d7b
+1	607	1592485967134770047	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_LinkedList.cpp.o	2eaf93c752fe0d98
+0	665	1592485967194770423	src/25a6634@@com.github.IlzJokerzlI.CompagnieSearch@exe/Implementation_HashTable.cpp.o	db7fbc3c74c908d2
+665	767	1592485967294771050	src/com.github.IlzJokerzlI.CompagnieSearch	e0934ac08d36b472
+>>>>>>> 34048e04f8e9d24ac87ef9890124b74ba6972df0

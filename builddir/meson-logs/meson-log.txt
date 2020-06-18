@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Build started at 2020-06-18T20:07:11.823130
+=======
+Build started at 2020-06-18T20:12:46.419911
+>>>>>>> 34048e04f8e9d24ac87ef9890124b74ba6972df0
 Main binary: /usr/bin/python
 Build Options: -Dbackend=ninja
 Python system: Linux
@@ -27,8 +31,13 @@ Build targets in project: 1
 
 Found ninja-1.10.0 at /usr/bin/ninja
 Running compile:
+<<<<<<< HEAD
 Working directory:  /tmp/tmp_u9wwmja
 Command line:  c++ /tmp/tmp_u9wwmja/testfile.cpp -o /tmp/tmp_u9wwmja/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
+=======
+Working directory:  /tmp/tmpz2qjvmcu
+Command line:  c++ /tmp/tmpz2qjvmcu/testfile.cpp -o /tmp/tmpz2qjvmcu/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
+>>>>>>> 34048e04f8e9d24ac87ef9890124b74ba6972df0
 
 Code:
  int i = static_cast<int>(0);
@@ -38,8 +47,13 @@ Compiler stderr:
  
 Compiler accepts -std=c++14: YES
 Running compile:
+<<<<<<< HEAD
 Working directory:  /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmp44aivyhh
 Command line:  c++ /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmp44aivyhh/testfile.cpp -o /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmp44aivyhh/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+=======
+Working directory:  /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpnd8_k7fz
+Command line:  c++ /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpnd8_k7fz/testfile.cpp -o /home/arvin/Documents/github/CompagnieSearch/builddir/meson-private/tmpnd8_k7fz/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+>>>>>>> 34048e04f8e9d24ac87ef9890124b74ba6972df0
 
 Code:
  
