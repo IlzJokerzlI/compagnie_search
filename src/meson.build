@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 header = [
 	'Header/HashTable.hpp',
 	'Header/AVLTree.hpp',
@@ -15,10 +16,10 @@ implementation = [
 ]
 
 
+=======
+>>>>>>> 2336d195ea4f574c5b4a15ca4802f0b560312baa
 executable(
 	meson.project_name(),
 	'Main.cpp',
-	header,
-	implementation,
 	install : true,
 )

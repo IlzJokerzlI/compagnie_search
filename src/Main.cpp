@@ -8,6 +8,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
+<<<<<<< HEAD
 
 void displayMenu() {
     cout << endl;
@@ -125,5 +126,9 @@ int main() {
             cout << "\nINVALID OPTION!\n" << endl;
         }
     }
+=======
+int main() {
+    cout << "Compagnie Search << endl;
+>>>>>>> 2336d195ea4f574c5b4a15ca4802f0b560312baa
     return 0;
 }
