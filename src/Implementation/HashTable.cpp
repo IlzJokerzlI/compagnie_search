@@ -72,6 +72,41 @@ HashTable::HashTable() {
 }
 
 
+int HashTable::read(const string filePath) {
+    ifstream file; //Text file
+    string tempData[4] = {"0", "0", "0", "0"}; //Temporarily store data
+
+
+    //Opens file and check validity
+    file.open(filePath);
+    if(!(file.is_open())) {
+        return -1;
+    }
+
+
+    //Traverses the data in file and put into matrix
+    while(getline(file, tempData[0], ',')) {
+        getline(file, tempData[1], ',');
+        getline(file, tempData[2], ',');
+        getline(file, tempData[3]);
+
+        if (!tempData[0].empty() && !tempData[1].empty() && !tempData[2].empty() && !tempData[3].empty()) {
+            this->input(new Employee(tempData[2], tempData[3], new ID(tempData[1]), (tempData[0] != "0")));
+        }    }
+
+    file.close();
+    return 0;
+}
+
+
+int HashTable::input(Employee *employee) {
+    int *loc = this->getLoc(employee->getID());
+
+    this->table[loc[0]][loc[1]].insert(employee);
+    return 0;
+}
+
+
 int HashTable::input(string firstName, string lastName) {
     this->toLower(firstName);
     this->toLower(lastName);
@@ -153,6 +188,26 @@ int HashTable::displaySort() {
         }
 
         list->display();
+        return 0;
+    }
+
+    return -1;
+}
+
+
+int HashTable::write(const string filePath) {
+    ofstream file(filePath + ".txt");
+
+    AVLTree **tempAVL { this->table };
+
+    if (this->table) {
+        for (int i { 0 }; i < this->n; i++) {
+            for (int j {0}; j < this->n; j++) {
+                tempAVL[i][j].write(file);
+            }
+        }
+
+        file.close();
         return 0;
     }
 

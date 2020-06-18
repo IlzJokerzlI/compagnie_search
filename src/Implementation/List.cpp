@@ -193,9 +193,12 @@ class List {
         void display() {
             Node *currentPtr { this->head }; //Sets the current pointer to head
             while(currentPtr) {
-                //Iterate through the linked list
+                //Checks the activation of an Employee
+                if (!currentPtr->value->isDeactivated()) {
+                    //Iterate through the linked list
                 cout << currentPtr->value->getID()->toString() << " : " << currentPtr->value->getName() << endl;
                 currentPtr = currentPtr->nextPtr;
                 }
+            }
         }
 };

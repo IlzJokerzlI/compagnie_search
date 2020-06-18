@@ -10,7 +10,6 @@ using std::string;
     All the information of an employee will be contained in an object which is instansiated from the following Employee Class. The Employee Object is also served as a node of double linked list which is why it has next pointer and previous pointer properties. The Employee object created will never be removed completely but deactivated. The reason is, once an employee is registered, the id registered is already permanently created, a missing ID might create a confusion during employee data checking.
 **/
 class Employee{
-public:
     string firstName; //Stores the first name of an employee
     string lastName; //Stores the last name of an employee
     ID *id; //Stores the ID of an employee

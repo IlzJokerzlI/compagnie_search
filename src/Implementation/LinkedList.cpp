@@ -4,11 +4,13 @@ int LinkedList::add(Employee *employee) {
     if (this->head == nullptr) {
 		this->head = employee;
 		this->tail = this->head;
-		this->head->getID()->setSequence(1);
+		this->size = 1;
+		this->head->getID()->setSequence(this->size);
 		return 0;
 	}
 
-    employee->getID()->setSequence(tail->getID()->getSequence() + 1);
+    this->size += 1;
+    employee->getID()->setSequence(this->size);
 
     this->tail->nextPtr = employee;
     employee->prevPtr = this->tail;
@@ -20,7 +22,7 @@ int LinkedList::add(Employee *employee) {
 Employee *LinkedList::getEmployee(ID *id) {
     Employee *currentPtr { this->head };
     while (currentPtr) {
-        if (!currentPtr->isDeactivated() && id->getSequence() == currentPtr->getID()->getSequence()) {
+        if (id->getSequence() == currentPtr->getID()->getSequence()) {
             return currentPtr;
         }
 
@@ -59,9 +61,11 @@ Employee *LinkedList::getTail() {
 void LinkedList::display() {
     Employee *currentPtr { this->head };
     while(currentPtr) {
-        cout << currentPtr->getID()->toString() << " ";
-        cout << currentPtr->getName() << " ";
-        cout << endl;
+        if (!currentPtr->isDeactivated()) {
+            cout << currentPtr->getID()->toString() << " ";
+            cout << currentPtr->getName() << " ";
+            cout << endl;
+        }
         currentPtr = currentPtr->nextPtr;
     }
 }

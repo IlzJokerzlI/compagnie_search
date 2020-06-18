@@ -3,9 +3,9 @@
 #include "../Implementation/List.cpp"
 
 class LinkedList {
-public:
 	Employee *head { nullptr };
 	Employee *tail { nullptr };
+	int size { 0 };
 
 	public:
 		LinkedList *lPtr {nullptr};

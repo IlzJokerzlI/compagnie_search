@@ -2,10 +2,16 @@
 
 #include "LinkedList.hpp"
 
+
+#include <fstream>
 #include <iostream>
 
+
+using std::ofstream;
+using std::endl;
+
+
 class AVLTree {
-public:
 	LinkedList *root { nullptr };
 
 	int getHeight(LinkedList *linkedList); //Get the height position of linkedLists in the tree
@@ -17,6 +23,7 @@ public:
 	LinkedList *insert(LinkedList *linkedList, Employee *employee); //Insert linkedList
 	void inordDisp(LinkedList *linkedList);
 	void inordSort(List *list, LinkedList *linkedList);
+	void inordWrite(ofstream &file, LinkedList *linkedList);
 
 	public:
 		int insert(Employee *employee); //Insert linkedList for public
@@ -25,4 +32,5 @@ public:
 		LinkedList *getRoot(); //Get the root linkedList of the tree uses
 		int display();
 		int displaySorted(List *list);
+		int write(ofstream &file);
 }; 

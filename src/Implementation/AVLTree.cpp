@@ -168,7 +168,9 @@ void AVLTree::inordSort(List *list, LinkedList *linkedList) {
         this->inordSort(list, linkedList->lPtr);
         Employee *currentNode { linkedList->getHead() };
         while (currentNode) {
-            list->addSort(currentNode);
+            if (!currentNode->isDeactivated()) {
+                list->addSort(currentNode);
+            }
             currentNode = currentNode->nextPtr;
         }
         this->inordSort(list, linkedList->rPtr);
@@ -176,7 +178,25 @@ void AVLTree::inordSort(List *list, LinkedList *linkedList) {
 }
 
 
-//Public Functions
+void AVLTree::inordWrite(ofstream &file, LinkedList *linkedList) {
+    if (linkedList) {
+        this->inordWrite(file, linkedList->lPtr);
+        Employee *currentNode { linkedList->getHead() };
+        while (currentNode) {
+            file << currentNode->isDeactivated() << ",";
+            file << currentNode->getID()->toString() << ",";
+            file << currentNode->getFirstName() << ",";
+            file << currentNode->getLastName();
+            file << endl;
+
+            currentNode = currentNode->nextPtr;
+        }
+        this->inordWrite(file, linkedList->rPtr);
+    }
+}
+
+
+//Public Methods
 
 //Inserts employee to tree
 int AVLTree::insert(Employee *employee) {
@@ -246,5 +266,13 @@ int AVLTree::displaySorted(List *list) {
         return 0;
     }
 
+    return -1;
+}
+
+int AVLTree::write(ofstream &file) {
+    if (this->root) {
+        this->inordWrite(file, this->root);
+        return 0;
+    }
     return -1;
 }
