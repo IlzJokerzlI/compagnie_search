@@ -1,5 +1,11 @@
 # Compagnie Search Program <Version 0.1.0>
 
+### Members
+
+- Arvin Lee
+- Lay Acheadeth
+- Muhammad Naufaldi
+
 ### Background
 
 In the present world data has become one of the fundamental key when it comes to management. From a simple household to a huge company, the data existence varies from the simplest such as a daily schedule to a very complex form such as the data of employees in a company. The data not mistaken-ably must be managed with the best precision in the shortest amount of time. As the complexity and quantity of a data rise, it can not longer be managed by a single person and even can not be considered "properly managed" by multiple people above a certain number, a million or more. For this reason, we came up with an idea to create *Compagnie Search Program*, a c++ based program designed to manage a massive amount of data in shortest amount of time and best efficiency.
